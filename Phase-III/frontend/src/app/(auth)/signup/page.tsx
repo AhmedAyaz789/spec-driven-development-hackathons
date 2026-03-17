@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { SignUpForm } from '@/components/auth/SignUpForm';
+import { SignUpForm } from '@/components/Auth/SignUpForm';
 
 export default function SignUpPage() {
   return (

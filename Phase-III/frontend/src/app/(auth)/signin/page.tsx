@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { SignInForm } from '@/components/auth/SignInForm';
+import { SignInForm } from '@/components/Auth/SignInForm';
 
 export default function SignInPage() {
   return (
