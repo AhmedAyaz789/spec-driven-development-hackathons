@@ -1,20 +1,17 @@
-// src/app/(dashboard)/layout.tsx
+'use client';
+
 import React from 'react';
-import { useAuth } from '@/lib/hooks/useAuth';      // case-correct
-import { AuthGuard } from '@/components/Auth/AuthGuard'; // case-correct
+import { useAuth } from '@/lib/hooks/useAuth';
+import { AuthGuard } from '@/components/Auth/AuthGuard';
 
-interface DashboardLayoutProps {
-  children: React.ReactNode;
-}
-
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
 
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-
-  return <AuthGuard>{children}</AuthGuard>;
-};
-
-export default DashboardLayout;
+  return (
+    <AuthGuard>
+      <div className="min-h-screen bg-background px-4 py-6">
+        {children}
+      </div>
+    </AuthGuard>
+  );
+}

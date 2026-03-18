@@ -1,5 +1,3 @@
-// T061: Task detail page with edit mode and delete confirmation
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -28,7 +26,7 @@ export default function TaskDetailPage() {
 
   useEffect(() => {
     const fetchTask = async () => {
-      if (!user || !taskId) return;
+      if (!user?.id || !taskId) return;
 
       try {
         setLoading(true);
@@ -42,7 +40,7 @@ export default function TaskDetailPage() {
     };
 
     fetchTask();
-  }, [user, taskId]);
+  }, [user?.id, taskId]);
 
   const handleSubmit = async (data: TaskUpdateRequest) => {
     if (!taskId) return;
@@ -135,7 +133,6 @@ export default function TaskDetailPage() {
         />
       </div>
 
-      {/* Delete confirmation modal */}
       <Modal
         isOpen={showDeleteModal}
         title="Delete Task?"
