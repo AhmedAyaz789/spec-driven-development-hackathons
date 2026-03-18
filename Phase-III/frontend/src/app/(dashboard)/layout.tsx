@@ -1,47 +1,20 @@
-// T040: Dashboard layout with navigation bar and user menu
-
-'use client';
-
+// src/app/(dashboard)/layout.tsx
 import React from 'react';
-import { useAuth } from '@/lib/hooks/useAuth';
-import { Button } from '@/components/ui/Button';
-import { AuthGuard } from '@/components/Auth/AuthGuard';
+import { useAuth } from '@/lib/hooks/useAuth';      // case-correct
+import { AuthGuard } from '@/components/Auth/AuthGuard'; // case-correct
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, signOut } = useAuth();
-
-  return (
-    <AuthGuard>
-      <div className="min-h-screen bg-background-dark">
-      {/* Navigation bar */}
-      <nav className="bg-background-card border-b border-gray-800 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold bg-gradient-to- from-primary-400 to-accent-purple bg-clip-text text-transparent">
-                ✨ Todo App
-              </h1>
-            </div>
-
-            <div className="flex items-center gap-4">
-              {user && (
-                <>
-                  <span className="text-sm text-gray-300">{user.email}</span>
-                  <Button variant="ghost" size="sm" onClick={signOut}>
-                    Sign Out
-                  </Button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children}
-      </main>
-    </div>
-    </AuthGuard>
-  );
+interface DashboardLayoutProps {
+  children: React.ReactNode;
 }
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return <AuthGuard>{children}</AuthGuard>;
+};
+
+export default DashboardLayout;

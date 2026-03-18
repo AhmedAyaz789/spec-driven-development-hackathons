@@ -1,7 +1,7 @@
 // T011: Auth type definitions
 
 export interface User {
-  id: string;           // UUID from JWT sub claim
+  id: number;           // UUID from JWT sub claim
   email: string;        // User's email address
   token?: string;       // JWT access token (optional for BetterAuth compatibility)
 }
