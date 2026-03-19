@@ -1,3 +1,3 @@
 ## Live Demo
 
-Check the live version of this project here: [Live Demo](https://vercel.com/ahmedayaz789s-projects/todo_app)
+Check the live version of this project here: [Live Demo](https://todoapp-one-gold.vercel.app/)
