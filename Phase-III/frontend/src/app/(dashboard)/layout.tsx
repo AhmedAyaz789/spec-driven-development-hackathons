@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useAuth } from '@/lib/hooks/useAuth';
-import  AuthGuard  from '@/components/Auth/AuthGuard';
+import AuthGuard from '@/components/Auth/AuthGuard'; // default export
+import { useAuth } from '@/lib/hooks/useAuth';        // named export
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
