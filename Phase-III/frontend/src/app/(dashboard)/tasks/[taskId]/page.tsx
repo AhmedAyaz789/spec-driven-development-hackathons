@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { useAuth } from '@/lib/hooks/useAuth';
-import { getTask } from '@/lib/api/tasks';
-import { useTasks } from '@/lib/hooks/useTasks';
+import { useAuth } from '../../../../lib/hooks/useAuth';
+import { useTasks } from '../../../../lib/hooks/useTasks';
+import { getTask } from '../../../../lib/api/tasks';
 import { TaskForm } from '@/components/tasks/TaskForm';
 import { Modal } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/Button';
